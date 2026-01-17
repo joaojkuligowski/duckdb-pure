@@ -1,5 +1,5 @@
 {
-    "name": "lucadev/duckdb-pure",
+    "name": "joaojkuligowski/duckdb-pure",
     "description": "A pure PHP DuckDB Connector.",
     "type": "library",
     "require": {
@@ -22,7 +22,7 @@
     },
     "authors": [
         {
-            "name": "luca"
+            "name": "João Kuligowski"
         }
     ],
     "minimum-stability": "dev"
