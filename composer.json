@@ -1,0 +1,24 @@
+{
+    "name": "lucadev/duckdb-pure",
+    "description": "A pure PHP DuckDB Connector.",
+    "type": "library",
+    "require": {
+        "symfony/process": "8.1.x-dev"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^8.0",
+        "phpunit/phpunit": "^13.0@dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lucadev\\DuckdbPure\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "luca"
+        }
+    ],
+    "minimum-stability": "dev"
+}
