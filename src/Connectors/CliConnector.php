@@ -1,12 +1,12 @@
 <?php 
-namespace Lucadev\DuckdbPure\Connectors;
+namespace JoaoJ\DuckdbPure\Connectors;
 
-use Lucadev\DuckdbPure\Contracts\ConnectorInterface;
-use Lucadev\DuckdbPure\Exceptions\DuckDBException;
+use JoaoJ\DuckdbPure\Contracts\ConnectorInterface;
+use JoaoJ\DuckdbPure\Exceptions\DuckDBException;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-use Lucadev\DuckdbPure\Results\DuckDBResult;
+use JoaoJ\DuckdbPure\Results\DuckDBResult;
 
 class CliConnector implements ConnectorInterface
 {

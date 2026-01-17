@@ -1,8 +1,8 @@
 # DuckDB Pure PHP
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/lucadev/duckdb-pure.svg?style=flat-square)](https://packagist.org/packages/lucadev/duckdb-pure)
-[![Tests](https://github.com/lucadev/duckdb-pure/actions/workflows/main.yml/badge.svg)](https://github.com/lucadev/duckdb-pure/actions/workflows/main.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/lucadev/duckdb-pure.svg?style=flat-square)](https://packagist.org/packages/lucadev/duckdb-pure)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/joaojkuligowski/duckdb-pure.svg?style=flat-square)](https://packagist.org/packages/joaojkuligowski/duckdb-pure)
+[![Tests](https://github.com/joaojkuligowski/duckdb-pure/actions/workflows/main.yml/badge.svg)](https://github.com/joaojkuligowski/duckdb-pure/actions/workflows/main.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/joaojkuligowski/duckdb-pure.svg?style=flat-square)](https://packagist.org/packages/joaojkuligowski/duckdb-pure)
 
 A pure PHP connector for [DuckDB](https://duckdb.org/), the in-process analytical database. This library interacts with the DuckDB CLI application, offering a simple and dependency-light way to run queries from your PHP projects.
 
@@ -16,7 +16,7 @@ A pure PHP connector for [DuckDB](https://duckdb.org/), the in-process analytica
 You can install the package via Composer:
 
 ```bash
-composer require lucadev/duckdb-pure
+composer require joaojkuligowski/duckdb-pure
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ This library can be used via the `DuckDB` facade, which provides a simple, stati
 First, connect to your database file. The connection is managed as a singleton. If the file does not exist, DuckDB will create it.
 
 ```php
-use Lucadev\DuckdbPure\Facades\DuckDB;
+use joaojkuligowski\DuckdbPure\Facades\DuckDB;
 
 DuckDB::connect('/path/to/your/database.duckdb');
 ```
@@ -81,8 +81,8 @@ Here is a complete example of how to use the facade:
 
 require 'vendor/autoload.php';
 
-use Lucadev\DuckdbPure\Facades\DuckDB;
-use Lucadev\DuckdbPure\Exceptions\DuckDBException;
+use joaojkuligowski\DuckdbPure\Facades\DuckDB;
+use joaojkuligowski\DuckdbPure\Exceptions\DuckDBException;
 
 try {
     // 1. Connect to the database

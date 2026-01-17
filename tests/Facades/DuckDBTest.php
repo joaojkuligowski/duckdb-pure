@@ -2,7 +2,7 @@
 
 namespace Tests\Facades;
 
-use Lucadev\DuckdbPure\Facades\DuckDB;
+use JoaoJ\DuckdbPure\Facades\DuckDB;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 

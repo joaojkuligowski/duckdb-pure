@@ -28,9 +28,9 @@ class ComposerStaticInit70253ab4e02a879326dcb6acf7f056a4
         array (
             'PhpParser\\' => 10,
         ),
-        'L' =>
+        'J' =>
         array (
-            'Lucadev\\DuckdbPure\\' => 19,
+            'JoaoJ\\DuckdbPure\\' => 17,
         ),
         'D' =>
         array (
@@ -59,7 +59,7 @@ class ComposerStaticInit70253ab4e02a879326dcb6acf7f056a4
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Lucadev\\DuckdbPure\\' =>
+        'JoaoJ\\DuckdbPure\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

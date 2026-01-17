@@ -1,9 +1,9 @@
 <?php
-namespace Lucadev\DuckdbPure\Facades;
+namespace JoaoJ\DuckdbPure\Facades;
 
-use Lucadev\DuckdbPure\Contracts\ConnectorInterface;
-use Lucadev\DuckdbPure\Factories\DuckDBFactory;
-use Lucadev\DuckdbPure\Results\DuckDBResult;
+use JoaoJ\DuckdbPure\Contracts\ConnectorInterface;
+use JoaoJ\DuckdbPure\Factories\DuckDBFactory;
+use JoaoJ\DuckdbPure\Results\DuckDBResult;
 use RuntimeException;
 
 class DuckDB
@@ -11,7 +11,7 @@ class DuckDB
     private static ?ConnectorInterface $connector = null;
 
     /**
-     * @throws \Lucadev\DuckdbPure\Exceptions\DuckDBException
+     * @throws \JoaoJ\DuckdbPure\Exceptions\DuckDBException
      */
     public static function connect(string $path, array $configs = []): void
     {
@@ -21,7 +21,7 @@ class DuckDB
     }
 
     /**
-     * @throws \Lucadev\DuckdbPure\Exceptions\DuckDBException
+     * @throws \JoaoJ\DuckdbPure\Exceptions\DuckDBException
      */
     public static function query(string $query, array $params = []): DuckDBResult
     {
@@ -30,7 +30,7 @@ class DuckDB
     }
 
     /**
-     * @throws \Lucadev\DuckdbPure\Exceptions\DuckDBException
+     * @throws \JoaoJ\DuckdbPure\Exceptions\DuckDBException
      */
     public static function execute(string $query, array $params = []): bool
     {

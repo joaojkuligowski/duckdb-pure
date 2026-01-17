@@ -1,5 +1,5 @@
 <?php 
-namespace Lucadev\DuckdbPure\Results;
+namespace JoaoJ\DuckdbPure\Results;
 
 class DuckDBResult {
   public array $result = [];

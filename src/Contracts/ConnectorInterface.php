@@ -1,7 +1,7 @@
 <?php
-namespace Lucadev\DuckdbPure\Contracts;
+namespace JoaoJ\DuckdbPure\Contracts;
 
-use Lucadev\DuckdbPure\Results\DuckDBResult;
+use JoaoJ\DuckdbPure\Results\DuckDBResult;
 
 interface ConnectorInterface
 {

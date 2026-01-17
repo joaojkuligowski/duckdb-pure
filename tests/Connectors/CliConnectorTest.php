@@ -1,8 +1,8 @@
 <?php 
 declare(strict_types=1);
 
-use Lucadev\DuckdbPure\Contracts\ConnectorInterface;
-use Lucadev\DuckdbPure\Connectors\CliConnector;
+use JoaoJ\DuckdbPure\Contracts\ConnectorInterface;
+use JoaoJ\DuckdbPure\Connectors\CliConnector;
 use PHPUnit\Framework\TestCase;
 
 final class CliConnectorTest extends TestCase {

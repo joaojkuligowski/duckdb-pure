@@ -1,5 +1,5 @@
 <?php 
-namespace Lucadev\DuckdbPure\Exceptions;
+namespace JoaoJ\DuckdbPure\Exceptions;
 
 class DuckDBException extends \Exception {
   public function __construct(string $message) {

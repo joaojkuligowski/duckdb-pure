@@ -1,9 +1,9 @@
 <?php
 
-namespace Lucadev\DuckdbPure\Factories;
+namespace JoaoJ\DuckdbPure\Factories;
 
-use Lucadev\DuckdbPure\Connectors\CliConnector;
-use Lucadev\DuckdbPure\Contracts\ConnectorInterface;
+use JoaoJ\DuckdbPure\Connectors\CliConnector;
+use JoaoJ\DuckdbPure\Contracts\ConnectorInterface;
 
 class DuckDBFactory
 {
