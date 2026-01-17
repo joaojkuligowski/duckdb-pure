@@ -23,21 +23,23 @@ class CliConnector implements ConnectorInterface
   }
 
   private function formatAndEscapeQuery(string $query, array $params = []): string {
-    $sqliteMemo = new \Sqlite3(':memory:');
-    $escaped = $sqliteMemo->escapeString($query);
-
     if (empty($params)) {
-      return $escaped;
+        return $query;
     }
 
-    $finalQuery = $escaped;
-    
+    $sqliteMemo = new \Sqlite3(':memory:');
+
     foreach ($params as $key => $value) {
-      $finalQuery = str_replace(':' . $key, $sqliteMemo->escapeString($value), $finalQuery);
+        if (is_string($value)) {
+            $escapedValue = $sqliteMemo->escapeString($value);
+            $query = str_replace(':' . $key, "'" . $escapedValue . "'", $query);
+        } else {
+            $query = str_replace(':' . $key, $value, $query);
+        }
     }
 
-    return $finalQuery;
-  }
+    return $query;
+}
 
   private function exec(string $query, array $params = []): array {
     $query = $this->formatAndEscapeQuery($query, $params);

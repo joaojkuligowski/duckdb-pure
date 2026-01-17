@@ -21,26 +21,24 @@ composer require lucadev/duckdb-pure
 
 ## Usage
 
-The library provides a straightforward API for connecting to a DuckDB database, executing queries, and fetching results.
+This library can be used via the `DuckDB` facade, which provides a simple, static interface for interacting with the database.
 
 ### Connecting to the Database
 
-First, instantiate the `CliConnector` and connect to your database file. If the file does not exist, DuckDB will create it.
+First, connect to your database file. The connection is managed as a singleton. If the file does not exist, DuckDB will create it.
 
 ```php
-use Lucadev\DuckdbPure\Connectors\CliConnector;
+use Lucadev\DuckdbPure\Facades\DuckDB;
 
-$connector = new CliConnector();
-$connector->connect('/path/to/your/database.duckdb');
+DuckDB::connect('/path/to/your/database.duckdb');
 ```
 
 ### Running Queries
 
-Use the `query()` method for `SELECT` statements that return results. The method returns a `DuckDBResult` object.
+Use the `query()` method for `SELECT` statements. This method returns a `DuckDBResult` object.
 
 ```php
-// Assuming $connector is your connected instance
-$result = $connector->query('SELECT * FROM users WHERE name = :name', [
+$result = DuckDB::query('SELECT * FROM users WHERE name = :name', [
     'name' => 'Luca'
 ]);
 
@@ -56,51 +54,58 @@ For statements that do not return a result set (e.g., `CREATE`, `INSERT`, `UPDAT
 
 ```php
 // Create a table
-$connector->execute(
+DuckDB::execute(
     "CREATE TABLE users (id INTEGER, name VARCHAR);"
 );
 
 // Insert data
-$connector->execute(
+DuckDB::execute(
     "INSERT INTO users VALUES (1, 'Luca'), (2, 'John');"
 );
 ```
 
+### Disconnecting
+
+The connection can be manually closed if needed.
+
+```php
+DuckDB::disconnect();
+```
+
 ### Example
 
-Here is a complete example of how to use the library:
+Here is a complete example of how to use the facade:
 
 ```php
 <?php
 
 require 'vendor/autoload.php';
 
-use Lucadev\DuckdbPure\Connectors\CliConnector;
+use Lucadev\DuckdbPure\Facades\DuckDB;
 use Lucadev\DuckdbPure\Exceptions\DuckDBException;
 
 try {
     // 1. Connect to the database
     $dbFile = 'mydatabase.duckdb';
-    $connector = new CliConnector();
-    $connector->connect($dbFile);
+    DuckDB::connect($dbFile);
 
     echo "Connection successful.\n";
 
     // 2. Create a table (or ensure it exists)
-    $connector->execute(
+    DuckDB::execute(
         "CREATE TABLE IF NOT EXISTS cities (name VARCHAR, country VARCHAR);"
     );
 
     // 3. Insert some data (idempotent)
-    $connector->execute("DELETE FROM cities;"); // Clear previous data for this example
-    $connector->execute(
+    DuckDB::execute("DELETE FROM cities;"); // Clear previous data for this example
+    DuckDB::execute(
         "INSERT INTO cities VALUES ('Amsterdam', 'Netherlands'), ('Prague', 'Czech Republic');"
     );
 
     echo "Data inserted.\n";
 
     // 4. Query the data
-    $result = $connector->query('SELECT * FROM cities WHERE country = :country', [
+    $result = DuckDB::query('SELECT * FROM cities WHERE country = :country', [
         'country' => 'Netherlands'
     ]);
 
@@ -109,11 +114,12 @@ try {
     echo "Query results:\n";
     print_r($data);
 
-    // 5. Clean up the database file
+    // 5. Disconnect and clean up
+    DuckDB::disconnect();
     unlink($dbFile);
 
 
-} catch (DuckDBException $e) {
+} catch (DuckDBException | RuntimeException $e) {
     echo "An error occurred: " . $e->getMessage() . "\n";
 }
 ```
